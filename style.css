@@ -1,0 +1,93 @@
+/* GDP 小镇 · 样式（移动端优先 / 浅色主题） */
+:root {
+  --green: #0f6e56; --green-50: #e1f5ee; --green-900: #04342c;
+  --purple: #534ab7; --amber: #ba7517; --amber-50: #faeeda;
+  --red: #a32d2d; --red-50: #fcebeb;
+  --text: #26215c; --muted: #5f5e5a; --border: rgba(0,0,0,0.14);
+  --bg: #f6f5f0; --card: #ffffff; --radius: 14px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: var(--bg); color: var(--text); font-size: 15px; line-height: 1.6;
+  max-width: 520px; margin: 0 auto; min-height: 100vh;
+}
+
+/* 头部 */
+.top { background: var(--green); color: #fff; padding: 16px 16px 12px; }
+.brand { display: flex; align-items: center; gap: 12px; }
+.logo { width: 42px; height: 42px; border-radius: 12px; background: var(--green-50); position: relative; flex: none; }
+.logo::after { content: ""; position: absolute; left: 10px; bottom: 8px; width: 0; height: 0;
+  border-left: 11px solid transparent; border-right: 11px solid transparent; border-bottom: 22px solid var(--green); }
+.logo::before { content: ""; position: absolute; left: 18px; top: 4px; width: 6px; height: 10px;
+  background: var(--green); border-radius: 3px; }
+.brand h1 { font-size: 19px; font-weight: 500; }
+.slogan { font-size: 12px; opacity: 0.85; }
+.hud-row { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+.hud { background: rgba(255,255,255,0.16); border-radius: 8px; padding: 3px 10px; font-size: 13px; }
+
+/* 标签页 */
+.tabs { display: flex; background: var(--card); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 5; }
+.tab { flex: 1; padding: 12px 0; border: none; background: none; font-size: 15px; color: var(--muted); cursor: pointer; border-bottom: 2px solid transparent; }
+.tab.active { color: var(--green); border-bottom-color: var(--green); font-weight: 500; }
+
+/* 卡片 */
+main { padding: 14px; }
+.view { display: none; }
+.view.show { display: block; }
+.card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px; margin-bottom: 12px; }
+.card h3 { font-size: 16px; font-weight: 500; margin-bottom: 6px; }
+.muted { color: var(--muted); font-size: 13px; }
+
+/* 章节与关卡 */
+.chapter.locked { opacity: 0.62; }
+.lv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px; }
+.lv-btn { padding: 10px 8px; border-radius: 10px; border: 1px solid var(--border); background: var(--green-50); color: var(--green-900); cursor: pointer; font-size: 14px; }
+.lv-btn.done { background: var(--bg); color: var(--muted); }
+.lv-btn.lock { background: var(--bg); color: var(--muted); opacity: 0.6; cursor: not-allowed; }
+.lv-btn:not(.lock):not(.done):hover { filter: brightness(0.97); }
+
+/* 答题 */
+.lv-head { font-size: 13px; color: var(--muted); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+.tag { background: var(--green-50); color: var(--green); padding: 1px 8px; border-radius: 6px; font-size: 12px; }
+.q-text { font-size: 17px; font-weight: 500; margin-bottom: 14px; }
+.opts { display: flex; flex-direction: column; gap: 8px; }
+.opt { text-align: left; padding: 12px 14px; border-radius: 10px; border: 1px solid var(--border); background: var(--card); font-size: 15px; cursor: pointer; color: var(--text); }
+.opt:disabled { cursor: default; }
+.opt.correct { background: var(--green-50); border-color: var(--green); color: var(--green-900); }
+.opt.wrong { background: var(--red-50); border-color: var(--red); color: var(--red); }
+.feedback { margin-top: 12px; border-radius: 10px; padding: 12px; font-size: 14px; }
+.feedback.ok { background: var(--green-50); }
+.feedback.no { background: var(--amber-50); }
+.feedback button { margin-top: 10px; width: 100%; }
+.perfect { color: var(--green); font-weight: 500; }
+.formula { background: var(--bg); border-radius: 8px; padding: 8px 10px; font-size: 13px; margin: 8px 0; }
+.hint { font-size: 12px; color: var(--muted); margin-top: 8px; }
+
+/* 小镇 */
+.town-head .gdp-num { font-size: 34px; font-weight: 500; color: var(--green); }
+.town-head .gdp-num small { font-size: 14px; color: var(--muted); }
+.rank { font-size: 14px; margin: 4px 0 8px; }
+.bar { height: 8px; background: var(--bg); border-radius: 4px; overflow: hidden; }
+.bar-fill { height: 100%; background: var(--green); border-radius: 4px; }
+.bld { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.lv-star { color: var(--amber); font-size: 13px; }
+.bld button, .task button, .feedback button, .card > button, .alloc button, .modal-box > button {
+  background: var(--green); color: #fff; border: none; border-radius: 9px; padding: 9px 16px; font-size: 14px; cursor: pointer; }
+button:disabled { background: #c9c8c0; color: #888780; cursor: not-allowed; }
+.alloc { display: flex; flex-direction: column; gap: 8px; margin: 10px 0; }
+.alloc button { text-align: left; background: var(--card); color: var(--text); border: 1px solid var(--border); }
+.alloc button b { display: block; font-size: 15px; }
+.alloc button span { font-size: 13px; color: var(--muted); }
+.alloc button:hover { border-color: var(--green); }
+
+/* 镇长室 */
+.task { display: flex; align-items: center; justify-content: space-between; padding: 7px 0; gap: 10px; font-size: 14px; }
+.danger { background: var(--red) !important; }
+
+/* 弹窗 */
+.modal { position: fixed; inset: 0; background: rgba(0,0,0,0.4); display: none; align-items: center; justify-content: center; padding: 20px; z-index: 50; }
+.modal.show { display: flex; }
+.modal-box { background: var(--card); border-radius: var(--radius); padding: 20px; max-width: 420px; width: 100%; position: relative; max-height: 85vh; overflow: auto; }
+.modal-box h3 { margin-bottom: 8px; font-size: 17px; font-weight: 500; }
+.modal-x { position: absolute; top: 8px; right: 12px; background: none !important; color: var(--muted) !important; font-size: 20px; padding: 4px !important; }
