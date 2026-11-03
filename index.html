@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>GDP 小镇 · 宏观经济学学习游戏</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <div class="logo"></div>
+      <div>
+        <h1>GDP 小镇</h1>
+        <p class="slogan">答题招商 · 学好宏观经济学，镇子才能富</p>
+      </div>
+    </div>
+    <div id="st-hud" class="hud-row"></div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab" data-tab="quiz">答题招商</button>
+    <button class="tab" data-tab="town">我的小镇</button>
+    <button class="tab" data-tab="profile">镇长室</button>
+  </nav>
+
+  <main>
+    <section id="view-quiz" class="view show"></section>
+    <section id="view-town" class="view"></section>
+    <section id="view-profile" class="view"></section>
+  </main>
+
+  <div id="modal" class="modal"></div>
+
+  <script src="questions.js"></script>
+  <script src="analytics.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
